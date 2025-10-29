@@ -9,8 +9,7 @@ export default function HeroSection({ img, title, subtitle, button }: any) {
           src={img}
           alt="Hero Image"
           fill
-          className="object-cover object-center"
-          priority
+          className="object-cover "
         />
       </div>
 

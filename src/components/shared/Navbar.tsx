@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 
 export default function Navbar() {
   return (
-    <header className="border-b sticky top-0 shadow bg-background z-50">
+    <header className="border-b fixed w-full top-0 shadow bg-background z-50">
       <nav className="container mx-auto flex justify-between p-3">
         <NavbarLogo />
 
