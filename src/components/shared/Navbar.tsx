@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 
 export default function Navbar() {
   return (
-    <header className="border-b sticky top-0 shadow z-50">
+    <header className="border-b sticky top-0 shadow bg-background z-50">
       <nav className="container mx-auto flex justify-between p-3">
         <NavbarLogo />
 
@@ -75,10 +75,7 @@ function NavbarLinks({ className }: { className?: string }) {
       ))}
 
       {/* Large Screen Separator */}
-      <Separator
-        className="hidden lg:block bg-border/40"
-        orientation="vertical"
-      />
+      <Separator className="hidden lg:block" orientation="vertical" />
 
       {/* Navbar Buttons */}
       <div className="space-x-3 w-full lg:w-fit">
