@@ -83,7 +83,8 @@ function NavbarLinks({ className }: { className?: string }) {
         <LanguageToggle className="hidden lg:inline-flex" />
         <Button
           asChild
-          className="bg-main hover:bg-main-hover rounded-full hover:gap-3 w-full lg:w-fit"
+          variant="main"
+          className="hover:gap-3 w-full lg:w-fit"
           size="lg"
         >
           <a href="#contact">
