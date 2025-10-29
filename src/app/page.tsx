@@ -9,7 +9,6 @@ export default function Home() {
       img="/Hero.webp"
       button={true}
       />
-      Test
     </>
   )
 }
