@@ -6,7 +6,7 @@ export default function Home() {
       <Hero 
       title="Revolutionizing Skincare Through Dermatological Science"
       subtitle="Experience the pinnacle of dermatological innovation with our scienfically-formulated skincare products, designed to deliver visible results and promote lasting skincare"
-      img="/Hero.webp"
+      img="/Hero1.jpg"
       button={true}
       />
     </>
