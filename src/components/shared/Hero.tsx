@@ -1,24 +1,20 @@
 import Image from "next/image"
-import { Button } from "../ui/button"
-import { Main } from "next/document"
-type HeroProps = {
-  button?: boolean
-  title: string
-  subtitle: string
-  img: string
-}
-export default function Hero({title, subtitle,img, button=false}:HeroProps) {
-  return (
-    <section className="relative w-full h-screen">
-      <Image
-        src={img}
-        alt="Hero Image"
-        fill
-        className="object-cover object-center"
-        priority
-      />
+import { Button } from "@/components/ui/button"
 
-      <div className="absolute inset-0 flex flex-col gap-5 items-center justify-center text-center bg-black/50 px-4">
+export default function HeroSection({ img, title, subtitle, button }: any) {
+  return (
+    <section className="relative w-full h-screen overflow-hidden">
+      <div className="absolute inset-0 scale-105 animate-zoom-smooth">
+        <Image
+          src={img}
+          alt="Hero Image"
+          fill
+          className="object-cover object-center"
+          priority
+        />
+      </div>
+
+      <div className="absolute inset-0 flex flex-col gap-5 items-center justify-center text-center bg-black/40 px-4">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold max-w-6xl text-white leading-tight drop-shadow-lg">
           {title}
         </h1>
@@ -27,7 +23,7 @@ export default function Hero({title, subtitle,img, button=false}:HeroProps) {
         </p>
 
         {button && (
-            <Button variant={"main"}>Explore Our Products</Button>
+          <Button variant={"main"}>Explore Our Products</Button>
         )}
       </div>
     </section>
