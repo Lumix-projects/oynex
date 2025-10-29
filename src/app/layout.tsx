@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import Navbar from "@/components/shared/Navbar";
+import SplashScreen from "@/components/shared/Splashscreen";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -29,8 +30,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          
+          <SplashScreen>
           <main>{children}</main>
+          </SplashScreen>
         </ThemeProvider>
       </body>
     </html>
