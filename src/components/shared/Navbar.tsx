@@ -18,26 +18,28 @@ export default function Navbar() {
         <NavbarLinks className="hidden lg:flex" />
 
         {/* Mobile Links */}
-        <Sheet>
-          {/* Sheet Trigger */}
-          <SheetTrigger className="lg:hidden">
-            <Button variant={"outline"} className="text-primary">
-              <Menu />
-            </Button>
-          </SheetTrigger>
+        <div className="lg:hidden">
+          <Sheet>
+            {/* Sheet Trigger */}
+            <SheetTrigger>
+              <Button variant={"outline"} className="text-primary">
+                <Menu />
+              </Button>
+            </SheetTrigger>
 
-          {/* Sheet Content */}
-          <SheetContent side="top">
-            <SheetHeader className="pb-0 flex-row justify-between pr-10">
-              <NavbarLogo />
-              <div className="space-x-1">
-                <ModeToggle />
-                <LanguageToggle />
-              </div>
-            </SheetHeader>
-            <NavbarLinks className="flex flex-col items-start lg:hidden p-3 border-t" />
-          </SheetContent>
-        </Sheet>
+            {/* Sheet Content */}
+            <SheetContent side="top">
+              <SheetHeader className="pb-0 flex-row justify-between pr-10">
+                <NavbarLogo />
+                <div className="space-x-1">
+                  <ModeToggle />
+                  <LanguageToggle />
+                </div>
+              </SheetHeader>
+              <NavbarLinks className="flex flex-col items-start lg:hidden p-3 border-t" />
+            </SheetContent>
+          </Sheet>
+        </div>
       </nav>
     </header>
   );
