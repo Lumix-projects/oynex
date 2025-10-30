@@ -49,7 +49,7 @@ function NavbarLogo() {
   return (
     <Link href="/" className="flex gap-2 items-center">
       <Image src="/logo.png" alt="company logo" width={25} height={25} />
-      <h6 className="font-bold text-lg">Oynex Pharma</h6>
+      <h6 className="font-bold sm:text-lg">Oynex Pharma</h6>
     </Link>
   );
 }

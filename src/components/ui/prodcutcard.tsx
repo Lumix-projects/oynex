@@ -24,11 +24,11 @@ const products = [
 function ProductCard() {
   return (
 <section className="flex flex-col items-center">
-      <div className="container mx-auto flex flex-wrap justify-center gap-8 justify-items-center">
+      <div className="container p-5 mx-auto flex flex-wrap justify-center gap-8 justify-items-center">
         {products.map((product, index) => (
           <div
             key={index}
-            className="group relative w-64 h-72 rounded-2xl overflow-hidden shadow-md bg-background cursor-pointer"
+            className="group relative max-w-md rounded-2xl overflow-hidden shadow-md bg-background cursor-pointer"
           >
             {/* product */}
             <img
