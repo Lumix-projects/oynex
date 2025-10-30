@@ -22,14 +22,14 @@ export default function Home() {
       />
 
       {/* innovations */}
-      <section className="bg-foreground/10 py-20">
+      <section className="bg-foreground/5 py-20">
         <Headings title="Discover Our Innovations" subtitle="Redefining beauty through precision and innovation." />
         <ProductCard />
       </section>
 
       {/* Our Commitment */}
-      <section className="container mx-auto flex flex-wrap justify-center items-center gap-10 py-20 px-6">
-        <div className="flex w-full md:w-1/2 flex-col items-start text-left">
+      <section className="container mx-auto flex flex-col md:flex-row justify-center items-center gap-10 py-20 px-6">
+        <div className="flex flex-col items-start text-left md:w-1/2 lg:w-2/5">
           <h6 className="text-sm text-main font-medium">Our Commitment</h6>
           <h2 className="text-2xl sm:text-3xl font-semibold py-2">
             The Science Behind Oynex
@@ -43,21 +43,23 @@ export default function Home() {
             for its purity, potency, and proven benefits for skin health.
           </p>
         </div>
-        <div>
-          <img src="/doctor.jpg" alt="" className="w-100 rounded-3xl" />
+        <div className="w-full md:w-1/2 lg:w-2/5">
+          <img src="/doctor.jpg" alt="" className="w-full rounded-3xl" />
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="container mx-auto py-16 px-6 text-center">
-        <Headings
-          title="Trusted by Professionals, Loved by You"
-          subtitle="Hear what our customers and dermatologists have to say about their experience with Oynex Pharma."
-        />
+      <section className="bg-foreground/5">
+        <section className="container mx-auto py-16 px-6 text-center">
+          <Headings
+            title="Trusted by Professionals, Loved by You"
+            subtitle="Hear what our customers and dermatologists have to say about their experience with Oynex Pharma."
+          />
 
-        <div className="mt-10">
-          <Carouselsection />
-        </div>
+          <div className="mt-10">
+            <Carouselsection />
+          </div>
+        </section>
       </section>
 
     </>
