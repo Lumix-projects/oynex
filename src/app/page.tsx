@@ -1,6 +1,14 @@
 import Hero from "@/components/shared/Hero";
 import Headings from "@/components/ui/headings";
 import ProductCard from "@/components/ui/prodcutcard";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Carouselsection from "@/components/ui/testimonials";
 
 export default function Home() {
   return (
@@ -22,7 +30,7 @@ export default function Home() {
       {/* Our Commitment */}
       <section className="container mx-auto flex flex-wrap justify-center items-center gap-10 py-20 px-6">
         <div className="flex w-full md:w-1/2 flex-col items-start text-left">
-          <h6 className="text-sm text-blue-900 font-medium">Our Commitment</h6>
+          <h6 className="text-sm text-main font-medium">Our Commitment</h6>
           <h2 className="text-2xl sm:text-3xl font-semibold py-2">
             The Science Behind Oynex
           </h2>
@@ -37,6 +45,18 @@ export default function Home() {
         </div>
         <div>
           <img src="/doctor.jpg" alt="" className="w-100 rounded-3xl" />
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="container mx-auto py-16 px-6 text-center">
+        <Headings
+          title="Trusted by Professionals, Loved by You"
+          subtitle="Hear what our customers and dermatologists have to say about their experience with Oynex Pharma."
+        />
+
+        <div className="mt-10">
+          <Carouselsection />
         </div>
       </section>
 
