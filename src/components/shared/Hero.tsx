@@ -5,8 +5,8 @@ export default function HeroSection({ img, title, subtitle, button }: { img: str
   return (
     <section className="relative w-full h-screen overflow-hidden">
       <div className="absolute inset-0 scale-105 animate-zoom-smooth">
-        
-        {/* hmage */}
+
+        {/* image */}
         <Image
           src={img}
           alt="Hero Image"
