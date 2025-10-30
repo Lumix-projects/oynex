@@ -15,9 +15,31 @@ export default function Home() {
 
       {/* innovations */}
       <section className="bg-foreground/10 py-20">
-      <Headings title="Discover Our Innovations" subtitle="Redefining beauty through precision and innovation." />
-      <ProductCard />
+        <Headings title="Discover Our Innovations" subtitle="Redefining beauty through precision and innovation." />
+        <ProductCard />
       </section>
+
+      {/* Our Commitment */}
+      <section className="container mx-auto flex flex-wrap justify-center items-center gap-10 py-20 px-6">
+        <div className="flex w-full md:w-1/2 flex-col items-start text-left">
+          <h6 className="text-sm text-blue-900 font-medium">Our Commitment</h6>
+          <h2 className="text-2xl sm:text-3xl font-semibold py-2">
+            The Science Behind Oynex
+          </h2>
+          <p className="text-sm text-foreground/40 max-w-xl">
+            Our commitment to dermatological research is at the heart of everything
+            we do. We leverage cutting-edge science and clinically-proven ingredients
+            to create formulations that are both safe and exceptionally effective.
+            Our state-of-the-art laboratories are dedicated to pioneering the next
+            generation of skincare, where every ingredient is meticulously selected
+            for its purity, potency, and proven benefits for skin health.
+          </p>
+        </div>
+        <div>
+          <img src="/doctor.jpg" alt="" className="w-100 rounded-3xl" />
+        </div>
+      </section>
+
     </>
   )
 }

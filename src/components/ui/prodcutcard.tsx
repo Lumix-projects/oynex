@@ -19,12 +19,12 @@ const products = [
     name: "Facial Cleanser",
     desc: "Sebum Control",
   },
-  
+
 ];
 
 function ProductCard() {
   return (
-<section className="flex flex-col items-center">
+    <section className="flex flex-col items-center">
       <div className="container p-5 sm:p-0 mx-auto flex flex-wrap justify-center gap-8 justify-items-center">
         {products.map((product, index) => (
           <div
@@ -76,8 +76,8 @@ function ProductCard() {
           </div>
         ))}
       </div>
-        <Button variant="main" className="mt-10">View All Products</Button>
-        </section>
+      <Button variant="main" className="mt-10">View All Products</Button>
+    </section>
   );
 }
 
