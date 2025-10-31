@@ -1,8 +1,10 @@
 import { CardDemo } from "@/components/shared/Contactus";
 import Hero from "@/components/shared/Hero";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Headings from "@/components/ui/headings";
 import ProductCard from "@/components/ui/prodcutcard";
 import Carouselsection from "@/components/ui/testimonials";
+import { Mail, MapPinHouse, Phone } from "lucide-react";
 
 export default function Home() {
   return (
@@ -60,15 +62,63 @@ export default function Home() {
       <section className="container mx-auto py-20 px-6 text-center">
         <h6 className="text-sm text-main font-medium">Our Commitment</h6>
         <Headings title="Contact Oynex Pharma" subtitle="We're here to answer any questions you may have about our products, research, or brand. Whether you're a customer, a potential partner, or a healthcare professional, we look forward to hearing from you." />
-        <div className="container mx-auto flex flex-col md:flex-row items-start justify-center max-w-6xl gap-5 px-4 py-10">
-          {/* Form Section */}
+        
+        {/* contact form */}
+        <section className="container mx-auto flex flex-col md:flex-row items-center justify-center max-w-6xl gap-5 px-4 py-10">
+          {/* form section */}
           <CardDemo />
 
-          {/* Side Section */}
-          <div className="flex-1 flex items-center justify-center">
-            <div>test</div>
+          {/* information section */}
+          <div>
+            <div className="flex flex-col gap-2">
+              <Card className="w-full max-w-sm">
+                <CardHeader>
+                  <CardTitle>Our Information</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-col text-left gap-2">
+                    <div>
+                      <h6 className=" font-medium">Address</h6>
+                      <div className="flex items-center gap-2 text-sm text-foreground/70 ">
+                        <MapPinHouse size={35} />
+                        <p className="text-sm">Cairo – Nasr City – Unit (B) in Makram Obeid – 6th Floor – Apartment 17</p>
+                      </div>
+                    </div>
+                    <div>
+                      <h6 className=" font-medium">Phone</h6>
+                      <div className="flex items-center gap-2 text-sm text-foreground/70 ">
+                        <Phone size={25} />
+                        <p className="text-sm">+20106988152 / 02-22741637 </p>
+                      </div>
+                    </div>
+                    <div>
+                      <h6 className=" font-medium">Email</h6>
+                      <div className="flex items-center gap-2 text-sm text-foreground/70 ">
+                        <Mail size={25} />
+                        <p className="text-sm">www.oynexpharma@gmail.com</p>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+
+              </Card>
+              {/* Map Section */}
+              <div className="flex-1">
+                <div className="w-full border rounded-md overflow-hidden">
+                  <iframe
+                    title="Location Map"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3453.1242112084715!2d31.342410776358655!3d30.06197387491485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583e7228cb188b%3A0x703d99e90c6fd3f9!2sMakram%20Ebeid%2C%20Al%20Mintaqah%20as%20S%C4%81disah%2C%20Nasr%20City%2C%20Cairo%20Governorate!5e0!3m2!1sen!2seg!4v1761916432095!5m2!1sen!2seg"                    
+                    width="100%"
+                    height="50%"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>      </section>
+        </section>      
+        </section >
     </>
   )
 }
