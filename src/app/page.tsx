@@ -1,13 +1,7 @@
+import { CardDemo } from "@/components/shared/Contactus";
 import Hero from "@/components/shared/Hero";
 import Headings from "@/components/ui/headings";
 import ProductCard from "@/components/ui/prodcutcard";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 import Carouselsection from "@/components/ui/testimonials";
 
 export default function Home() {
@@ -62,6 +56,19 @@ export default function Home() {
         </section>
       </section>
 
+      {/* contact us */}
+      <section className="container mx-auto py-20 px-6 text-center">
+        <h6 className="text-sm text-main font-medium">Our Commitment</h6>
+        <Headings title="Contact Oynex Pharma" subtitle="We're here to answer any questions you may have about our products, research, or brand. Whether you're a customer, a potential partner, or a healthcare professional, we look forward to hearing from you." />
+        <div className="container mx-auto flex flex-col md:flex-row items-start justify-center max-w-6xl gap-5 px-4 py-10">
+          {/* Form Section */}
+          <CardDemo />
+
+          {/* Side Section */}
+          <div className="flex-1 flex items-center justify-center">
+            <div>test</div>
+          </div>
+        </div>      </section>
     </>
   )
 }
