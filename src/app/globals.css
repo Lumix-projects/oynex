@@ -82,7 +82,7 @@
 }
 
 .dark {
-  --main: #2a5f60;
+  --main: #3c6f70;
   --background: oklch(0.141 0.005 285.823);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.21 0.006 285.885);
@@ -142,7 +142,8 @@
   background-color: color-mix(in oklch, var(--main) 90%, white 10%);
 }
 @keyframes zoomSmooth {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1.05);
   }
   50% {
