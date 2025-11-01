@@ -4,7 +4,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel"
+} from "@/components/ui/carousel";
 
 export default function Carouselsection() {
   const testimonials = [
@@ -26,13 +26,13 @@ export default function Carouselsection() {
       name: "Lina Youssef",
       role: "Customer",
     },
-  ]
+  ];
 
   return (
     <section className="container mx-auto text-center px-4 sm:px-6 lg:px-8 ">
       <div className="mt-10 flex justify-center">
         <Carousel
-          className="w-full max-w-sm sm:max-w-lg lg:max-w-4xl"
+          className="w-full max-w-sm sm:max-w-lg lg:max-w-6xl"
           opts={{
             align: "start",
             loop: true,
@@ -70,5 +70,5 @@ export default function Carouselsection() {
         </Carousel>
       </div>
     </section>
-  )
+  );
 }

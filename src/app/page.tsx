@@ -1,12 +1,9 @@
 import { CardDemo } from "@/components/shared/Contactus";
-import Footer from "@/components/shared/Footer";
 import Hero from "@/components/shared/Hero";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Headings from "@/components/ui/headings";
 import Info from "@/components/ui/info";
 import ProductCard from "@/components/ui/prodcutcard";
 import Carouselsection from "@/components/ui/testimonials";
-import { Mail, MapPinHouse, Phone } from "lucide-react";
 
 export default function Home() {
   return (
@@ -21,7 +18,10 @@ export default function Home() {
 
       {/* innovations */}
       <section className="bg-foreground/5 py-20">
-        <Headings title="Discover Our Innovations" subtitle="Redefining beauty through precision and innovation." />
+        <Headings
+          title="Discover Our Innovations"
+          subtitle="Redefining beauty through precision and innovation."
+        />
         <ProductCard />
       </section>
 
@@ -33,12 +33,13 @@ export default function Home() {
             The Science Behind Oynex
           </h2>
           <p className="text-sm text-foreground/40 max-w-xl">
-            Our commitment to dermatological research is at the heart of everything
-            we do. We leverage cutting-edge science and clinically-proven ingredients
-            to create formulations that are both safe and exceptionally effective.
-            Our state-of-the-art laboratories are dedicated to pioneering the next
-            generation of skincare, where every ingredient is meticulously selected
-            for its purity, potency, and proven benefits for skin health.
+            Our commitment to dermatological research is at the heart of
+            everything we do. We leverage cutting-edge science and
+            clinically-proven ingredients to create formulations that are both
+            safe and exceptionally effective. Our state-of-the-art laboratories
+            are dedicated to pioneering the next generation of skincare, where
+            every ingredient is meticulously selected for its purity, potency,
+            and proven benefits for skin health.
           </p>
         </div>
         <div className="w-full md:w-1/2 lg:w-2/5">
@@ -63,10 +64,13 @@ export default function Home() {
       {/* contact us */}
       <section className="container mx-auto py-20 px-6 text-center">
         <h6 className="text-sm text-main font-medium">Our Commitment</h6>
-        <Headings title="Contact Oynex Pharma" subtitle="We're here to answer any questions you may have about our products, research, or brand. Whether you're a customer, a potential partner, or a healthcare professional, we look forward to hearing from you." />
+        <Headings
+          title="Contact Oynex Pharma"
+          subtitle="We're here to answer any questions you may have about our products, research, or brand. Whether you're a customer, a potential partner, or a healthcare professional, we look forward to hearing from you."
+        />
 
         {/* contact form */}
-        <section className="container mx-auto flex flex-col md:flex-row items-center justify-center max-w-6xl gap-5 px-4 py-10">
+        <section className="container mx-auto grid grid-cols-1 md:grid-cols-2 max-w-7xl gap-5 px-4 py-10">
           {/* form section */}
           <CardDemo />
 
@@ -90,10 +94,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-      </section >
-
-      {/* footer */}
-      <Footer />
+      </section>
     </>
-  )
+  );
 }

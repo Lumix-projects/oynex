@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import Navbar from "@/components/shared/Navbar";
 import SplashScreen from "@/components/shared/Splashscreen";
+import Footer from "@/components/shared/Footer";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -12,7 +13,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Oynex Pharma",
-  description: "Oynex Pharma is a pharmaceutical company dedicated to developing high-quality skincare and haircare products. Our mission is to combine science and nature to deliver effective, safe, and innovative solutions that enhance your health and beauty.",
+  description:
+    "Oynex Pharma is a pharmaceutical company dedicated to developing high-quality skincare and haircare products. Our mission is to combine science and nature to deliver effective, safe, and innovative solutions that enhance your health and beauty.",
 };
 
 export default function RootLayout({
@@ -31,7 +33,8 @@ export default function RootLayout({
         >
           <Navbar />
           <SplashScreen>
-          <main>{children}</main>
+            <main>{children}</main>
+            <Footer />
           </SplashScreen>
         </ThemeProvider>
       </body>
