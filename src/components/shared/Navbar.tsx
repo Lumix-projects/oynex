@@ -61,7 +61,7 @@ function NavbarLinks({ className }: { className?: string }) {
     { name: "Products", href: "/products", icon: Barcode },
   ];
   return (
-    <ul className={cn("gap-3 items-center", className)}>
+    <div className={cn("gap-3 items-center", className)}>
       {navLinks.map((link, index) => (
         <Button
           key={index}
@@ -69,10 +69,11 @@ function NavbarLinks({ className }: { className?: string }) {
           variant={"ghost"}
           className="w-full justify-start lg:w-fit"
         >
-          <li>
+          <Link href={link.href}>
             <link.icon className="h-5 w-5 lg:hidden" />
-            <Link href={link.href}>{link.name}</Link>
-          </li>
+
+            {link.name}
+          </Link>
         </Button>
       ))}
 
@@ -94,6 +95,6 @@ function NavbarLinks({ className }: { className?: string }) {
           </a>
         </Button>
       </div>
-    </ul>
+    </div>
   );
 }
