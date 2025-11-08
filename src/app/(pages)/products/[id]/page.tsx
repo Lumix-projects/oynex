@@ -60,12 +60,12 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
 
             {/* Key Benefits */}
             <div className="bg-main/70 rounded-2xl p-6 border border-main/20">
-              <h3 className="text-xl font-bold mb-4 text-foreground">Key Benefits</h3>
+              <h3 className="text-xl font-bold mb-4 text-white">Key Benefits</h3>
               <ul className="space-y-3">
                 {details.keyBenefits.map((benefit, i) => (
                   <li key={i} className="flex items-start">
                     <span className="text-main mr-3 text-xl font-bold">✓</span>
-                    <span className="text-foreground/70">{benefit}</span>
+                    <span className="text-white/70">{benefit}</span>
                   </li>
                 ))}
               </ul>
