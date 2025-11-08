@@ -21,9 +21,9 @@ export default function ProductsPage() {
             className="flex flex-col items-center text-center rounded-2xl shadow-md hover:shadow-lg transition overflow-hidden"
           >
             {/* Product Image */}
-            <div className="relative w-full h-64">
+            <div className="relative w-full h-96">
               <Image
-                src="/product.png"
+                src={product.img}
                 alt={product.title}
                 fill
                 className="object-cover"
