@@ -206,7 +206,7 @@ export const products = [
       ],
 
       productInfo: {
-        size: "150ml / 5 fl oz",
+        size: "200ml / 6.8 fl oz",
         type: "Facial Cleanser",
       },
 
@@ -238,23 +238,23 @@ export const products = [
           category: "Keratolytic & Exfoliating Agents",
           ingredients: [
             {
-              name: "Salicylic Acid (0.2%)",
+              name: "Salicylic Acid ",
               text: "A BHA that unclogs pores, exfoliates dead cells, and helps reduce acne.",
             },
             {
-              name: "Glycolic Acid (0.2%)",
+              name: "Glycolic Acid ",
               text: "An AHA that refines texture and promotes cell renewal.",
             },
             {
-              name: "Lactic Acid (0.2%)",
+              name: "Lactic Acid ",
               text: "Provides gentle exfoliation while maintaining hydration.",
             },
             {
-              name: "Kojic Acid (0.4%)",
+              name: "Kojic Acid ",
               text: "Inhibits melanin formation, brightening uneven tone.",
             },
             {
-              name: "Alpha-Arbutin (0.5%)",
+              name: "Alpha-Arbutin ",
               text: "Reduces hyperpigmentation and dark spots.",
             },
           ],
@@ -262,23 +262,23 @@ export const products = [
         {
           category: "Skin Conditioning & Nourishment",
           ingredients: [
-            { name: "Panthenol (0.3%)", text: "Moisturizes and soothes for soft, elastic skin." },
-            { name: "Aloe Vera Leaf Extract (0.2%)", text: "Hydrates and calms irritation." },
-            { name: "Chamomilla Recutita Extract (0.3%)", text: "Reduces redness and sensitivity." },
-            { name: "Tranexamic Acid (1%)", text: "Targets dark spots and improves clarity." },
-            { name: "Hyaluronic Acid (1%)", text: "Deeply hydrates and plumps skin." },
-            { name: "Collagen (1%)", text: "Improves firmness and elasticity." },
-            { name: "Caviar Extract (0.5%)", text: "Provides amino acids and lipids for vitality." },
-            { name: "Glycyrrhiza Glabra Root Extract (1%)", text: "Soothes irritation and brightens gently." },
-            { name: "Glycerin (0.5%)", text: "Retains moisture for a balanced complexion." },
+            { name: "Panthenol", text: "Moisturizes and soothes for soft, elastic skin." },
+            { name: "Aloe Vera Leaf Extract ", text: "Hydrates and calms irritation." },
+            { name: "Chamomilla Recutita Extract ", text: "Reduces redness and sensitivity." },
+            { name: "Tranexamic Acid ", text: "Targets dark spots and improves clarity." },
+            { name: "Hyaluronic Acid", text: "Deeply hydrates and plumps skin." },
+            { name: "Collagen ", text: "Improves firmness and elasticity." },
+            { name: "Caviar Extract ", text: "Provides amino acids and lipids for vitality." },
+            { name: "Glycyrrhiza Glabra Root Extract", text: "Soothes irritation and brightens gently." },
+            { name: "Glycerin", text: "Retains moisture for a balanced complexion." },
           ],
         },
         {
           category: "Vitamins & Antioxidants",
           ingredients: [
-            { name: "Tocopheryl Acetate (Vitamin E) (0.2%)", text: "Protects against oxidative stress and supports the barrier." },
-            { name: "Ascorbic Acid (Vitamin C) (0.5%)", text: "Boosts radiance and collagen production." },
-            { name: "Niacinamide (Vitamin B3) (0.8%)", text: "Improves elasticity and reduces dullness." },
+            { name: "Tocopheryl Acetate (Vitamin E) ", text: "Protects against oxidative stress and supports the barrier." },
+            { name: "Ascorbic Acid (Vitamin C) ", text: "Boosts radiance and collagen production." },
+            { name: "Niacinamide (Vitamin B3)", text: "Improves elasticity and reduces dullness." },
           ],
         },
         {
@@ -286,14 +286,14 @@ export const products = [
           ingredients: [
             {
               name: "Gentle Surfactant Blend",
-              text: "Includes Sodium Laureth Sulfate (7%), Cocamidopropyl Betaine (6%), Coco-Glucoside (3%), Cocamide DEA (2%), and Polysorbate 20 (0.3%) for effective yet mild cleansing.",
+              text: "Includes Sodium Laureth Sulfate, Cocamidopropyl Betaine, Coco-Glucoside, Cocamide DEA, and Polysorbate 20 for effective yet mild cleansing.",
             },
             {
-              name: "Polyquaternium-7 (2%)",
+              name: "Polyquaternium-7 ",
               text: "Leaves skin soft and conditioned after washing.",
             },
             {
-              name: "PEG-150 (0.2%)",
+              name: "PEG-150 ",
               text: "Enhances foam stability and smoothness.",
             },
           ],
@@ -323,7 +323,7 @@ export const products = [
         {
           question: "Is it suitable for sensitive skin?",
           answer:
-            "Yes. Despite containing exfoliating acids, the formulation is balanced with soothing ingredients like Chamomile and Aloe Vera.",
+            "Yes. Despite containing exfoliating acids, the formulation is balanced with sooting ingredients like chamomile ,aloe vera,collagen and hyaluronic acid.",
         },
         {
           question: "Can I use it daily?",
@@ -333,7 +333,7 @@ export const products = [
         {
           question: "Does it help with acne?",
           answer:
-            "Absolutely — it contains Salicylic Acid and Tea Tree Oil that target clogged pores and acne-causing bacteria.",
+            "Absolutely, it contains Salicylic Acid and Tea Tree Oil that target clogged pores and acne-causing bacteria.",
         },
       ],
 

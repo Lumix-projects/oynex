@@ -23,9 +23,9 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
       <div className="container mx-auto px-4 py-12 max-w-7xl">
         <Link
           href="/products"
-          className="inline-block text-main my-5 transition-all duration-300 hover:border-b hover:border-main"
+          className="group inline-block text-main my-5 transition-all duration-300"
         >
-          ← Back To Products
+          ← <span className="group-hover:ps-2 transition-all duration-300"> Back To Products</span>
         </Link>
         {/* Hero Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
@@ -121,13 +121,13 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
 
         {/* Safety Information */}
         <div className="bg-linear-to-r from-main to-blue-600 border-2 border-foreground/20 rounded-2xl p-8 mb-20 shadow-md">
-          <h2 className="text-2xl font-bold mb-6 text-foreground flex items-center">
+          <h2 className="text-2xl font-bold mb-6 text-white flex items-center">
             <span className="text-3xl mr-3">⚠️</span>
             Safety Information
           </h2>
           <ul className="space-y-3">
             {details.safetyInfo.map((info, i) => (
-              <li key={i} className="flex items-start text-foreground/70">
+              <li key={i} className="flex items-start text-white/70">
                 <span className="text-yellow-600 mr-3 font-bold">•</span>
                 <span>{info}</span>
               </li>
