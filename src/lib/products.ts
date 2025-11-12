@@ -1,4 +1,3 @@
-// src/lib/products.ts
 export const products = [
   {
     id: 1,
@@ -151,12 +150,6 @@ export const products = [
         },
       ],
 
-      clinicalResults: [
-        { percentage: "92%", text: "noticed reduced hair fall within 4 weeks" },
-        { percentage: "88%", text: "reported thicker, fuller hair" },
-        { percentage: "90%", text: "experienced improved scalp health" },
-      ],
-
       safetyInfo: [
         "For external use only",
         "Avoid contact with eyes. If contact occurs, rinse thoroughly with water",
@@ -189,6 +182,167 @@ export const products = [
         { icon: "🌿", label: "Natural Ingredients" },
         { icon: "🐰", label: "Cruelty Free" },
         { icon: "✓", label: "Dermatologist Approved" },
+      ],
+    },
+  },
+  {
+    id: 2,
+    title: "Kelden Laboratory Facial Cleanser",
+    description:
+      "A dermatologically formulated facial cleanser enriched with exfoliating acids, brightening agents, and hydrating complexes for balanced, radiant skin.",
+    img: "/cleanser1.jpg",
+
+    details: {
+      longDescription:
+        "Kelden Laboratory Facial Cleanser is a scientifically formulated daily cleanser that combines gentle exfoliating acids (AHA, BHA) with brightening and hydrating ingredients. It removes impurities, unclogs pores, evens out skin tone, and preps the skin for optimal absorption of subsequent skincare products.",
+
+      keyBenefits: [
+        "Deeply cleanses without stripping skin’s natural moisture",
+        "Combines AHAs and BHAs for effective exfoliation",
+        "Brightens dull skin and reduces dark spots",
+        "Provides intense hydration with Hyaluronic Acid and Collagen",
+        "Soothes irritation and redness with Chamomile and Aloe Vera",
+        "Protects against oxidative damage with Vitamins C & E",
+      ],
+
+      productInfo: {
+        size: "200ml / 6.8 fl oz",
+        type: "Facial Cleanser",
+      },
+
+      howToUse: [
+        {
+          step: 1,
+          title: "Apply",
+          text: "Dispense a small amount onto damp skin.",
+        },
+        {
+          step: 2,
+          title: "Massage",
+          text: "Gently massage in circular motions for 30–60 seconds.",
+        },
+        {
+          step: 3,
+          title: "Rinse",
+          text: "Rinse thoroughly with lukewarm water and pat dry.",
+        },
+        {
+          step: 4,
+          title: "Routine Integration",
+          text: "Use twice daily before toner, serum, or moisturizer.",
+        },
+      ],
+
+      keyIngredients: [
+        {
+          category: "Keratolytic & Exfoliating Agents",
+          ingredients: [
+            {
+              name: "Salicylic Acid ",
+              text: "A BHA that unclogs pores, exfoliates dead cells, and helps reduce acne.",
+            },
+            {
+              name: "Glycolic Acid ",
+              text: "An AHA that refines texture and promotes cell renewal.",
+            },
+            {
+              name: "Lactic Acid ",
+              text: "Provides gentle exfoliation while maintaining hydration.",
+            },
+            {
+              name: "Kojic Acid ",
+              text: "Inhibits melanin formation, brightening uneven tone.",
+            },
+            {
+              name: "Alpha-Arbutin ",
+              text: "Reduces hyperpigmentation and dark spots.",
+            },
+          ],
+        },
+        {
+          category: "Skin Conditioning & Nourishment",
+          ingredients: [
+            { name: "Panthenol", text: "Moisturizes and soothes for soft, elastic skin." },
+            { name: "Aloe Vera Leaf Extract ", text: "Hydrates and calms irritation." },
+            { name: "Chamomilla Recutita Extract ", text: "Reduces redness and sensitivity." },
+            { name: "Tranexamic Acid ", text: "Targets dark spots and improves clarity." },
+            { name: "Hyaluronic Acid", text: "Deeply hydrates and plumps skin." },
+            { name: "Collagen ", text: "Improves firmness and elasticity." },
+            { name: "Caviar Extract ", text: "Provides amino acids and lipids for vitality." },
+            { name: "Glycyrrhiza Glabra Root Extract", text: "Soothes irritation and brightens gently." },
+            { name: "Glycerin", text: "Retains moisture for a balanced complexion." },
+          ],
+        },
+        {
+          category: "Vitamins & Antioxidants",
+          ingredients: [
+            { name: "Tocopheryl Acetate (Vitamin E) ", text: "Protects against oxidative stress and supports the barrier." },
+            { name: "Ascorbic Acid (Vitamin C) ", text: "Boosts radiance and collagen production." },
+            { name: "Niacinamide (Vitamin B3)", text: "Improves elasticity and reduces dullness." },
+          ],
+        },
+        {
+          category: "Cleansing & Surfactant System",
+          ingredients: [
+            {
+              name: "Gentle Surfactant Blend",
+              text: "Includes Sodium Laureth Sulfate, Cocamidopropyl Betaine, Coco-Glucoside, Cocamide DEA, and Polysorbate 20 for effective yet mild cleansing.",
+            },
+            {
+              name: "Polyquaternium-7 ",
+              text: "Leaves skin soft and conditioned after washing.",
+            },
+            {
+              name: "PEG-150 ",
+              text: "Enhances foam stability and smoothness.",
+            },
+          ],
+        },
+        {
+          category: "Additional Functional Ingredients",
+          ingredients: [
+            { name: "Carbomer (1%)", text: "Provides smooth gel texture and consistency." },
+            { name: "EDTA (0.4%)", text: "Stabilizes the formulation by binding metal ions." },
+            { name: "Phenoxyethanol (0.5%) & Sodium Benzoate (0.4%)", text: "Preserve freshness and safety." },
+            { name: "Tea Tree Oil (1.5%)", text: "Adds antibacterial and purifying effects." },
+            { name: "Propylene Glycol (1%)", text: "Acts as solvent and humectant." },
+            { name: "Aqua (65.9%)", text: "Serves as the primary carrier." },
+          ],
+        },
+      ],
+
+      safetyInfo: [
+        "For external use only",
+        "Avoid contact with eyes; rinse immediately if contact occurs",
+        "Discontinue use if irritation develops",
+        "Keep out of reach of children",
+        "Store in a cool, dry place away from sunlight",
+      ],
+
+      faq: [
+        {
+          question: "Is it suitable for sensitive skin?",
+          answer:
+            "Yes. Despite containing exfoliating acids, the formulation is balanced with sooting ingredients like chamomile ,aloe vera,collagen and hyaluronic acid.",
+        },
+        {
+          question: "Can I use it daily?",
+          answer:
+            "Yes. It’s designed for twice-daily use, morning and evening.",
+        },
+        {
+          question: "Does it help with acne?",
+          answer:
+            "Absolutely, it contains Salicylic Acid and Tea Tree Oil that target clogged pores and acne-causing bacteria.",
+        },
+      ],
+
+      badges: [
+        { icon: "🧴", label: "Dermatologist Tested" },
+        { icon: "🌿", label: "Natural Extracts" },
+        { icon: "💧", label: "Hydrating Formula" },
+        { icon: "☀️", label: "Brightening Effect" },
+        { icon: "🐰", label: "Cruelty Free" },
       ],
     },
   },

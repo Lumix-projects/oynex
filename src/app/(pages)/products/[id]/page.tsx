@@ -1,5 +1,6 @@
 import { products } from "@/lib/products";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 interface ProductDetailsProps {
@@ -20,10 +21,16 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
   return (
     <div className="min-h-screen pt-10 bg-background">
       <div className="container mx-auto px-4 py-12 max-w-7xl">
+        <Link
+          href="/products"
+          className="group inline-block text-main my-5 transition-all duration-300"
+        >
+          ← <span className="group-hover:ps-2 transition-all duration-300"> Back To Products</span>
+        </Link>
         {/* Hero Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
           {/* Image */}
-          <div className="relative w-full h-[500px] lg:h-[700px] rounded-3xl overflow-hidden shadow-2xl group">
+          <div className="relative w-full h-[500px] md:h-[900px] lg:h-[700px] rounded-3xl overflow-hidden shadow-2xl group">
             <Image
               src={product.img}
               alt={product.title}
@@ -91,22 +98,6 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
               </div>
             ))}
           </div>
-        </div>        
-        
-        {/* Clinical Results */}
-        <div className="bg-linear-to-r from-main to-blue-600 text-white rounded-3xl p-10 mb-20 shadow-2xl">
-          <h2 className="text-3xl font-bold mb-10 text-center">Clinical Results</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {details.clinicalResults.map((result, i) => (
-              <div key={i} className="text-center bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-                <p className="text-6xl font-bold mb-3">{result.percentage}</p>
-                <p className="opacity-90">{result.text}</p>
-              </div>
-            ))}
-          </div>
-          <p className="text-center text-sm mt-8 opacity-75">
-            *Based on an 8-week clinical study with 150 participants
-          </p>
         </div>
 
         {/* Key Ingredients */}
@@ -129,14 +120,14 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
         </div>
 
         {/* Safety Information */}
-        <div className="bg-foreground/10 border-2 border-foreground/20 rounded-2xl p-8 mb-20 shadow-md">
-          <h2 className="text-2xl font-bold mb-6 text-foreground flex items-center">
+        <div className="bg-linear-to-r from-main to-blue-600 border-2 border-foreground/20 rounded-2xl p-8 mb-20 shadow-md">
+          <h2 className="text-2xl font-bold mb-6 text-white flex items-center">
             <span className="text-3xl mr-3">⚠️</span>
             Safety Information
           </h2>
           <ul className="space-y-3">
             {details.safetyInfo.map((info, i) => (
-              <li key={i} className="flex items-start text-foreground/70">
+              <li key={i} className="flex items-start text-white/70">
                 <span className="text-yellow-600 mr-3 font-bold">•</span>
                 <span>{info}</span>
               </li>
