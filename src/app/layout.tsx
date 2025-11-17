@@ -5,6 +5,7 @@ import { ThemeProvider } from "next-themes";
 import Navbar from "@/components/shared/Navbar";
 import SplashScreen from "@/components/shared/Splashscreen";
 import Footer from "@/components/shared/Footer";
+import { I18nProvider } from "@/components/shared/I18nProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -31,11 +32,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
-          <SplashScreen>
-            <main>{children}</main>
-            <Footer />
-          </SplashScreen>
+          <I18nProvider>
+            <Navbar />
+            <SplashScreen>
+              <main>{children}</main>
+              <Footer />
+            </SplashScreen>
+          </I18nProvider>
         </ThemeProvider>
       </body>
     </html>

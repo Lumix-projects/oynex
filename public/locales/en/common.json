@@ -1,0 +1,71 @@
+{
+    "hero": {
+        "title": "Revolutionizing Skincare Through Dermatological Science",
+        "subtitle": "Experience the pinnacle of dermatological innovation with our scientifically-formulated skincare products, designed to deliver visible results and promote lasting skincare"
+    },
+    "innovations": {
+        "title": "Discover Our Innovations",
+        "subtitle": "Redefining beauty through precision and innovation."
+    },
+    "commitment": {
+        "subtitle": "Our Commitment",
+        "title": "The Science Behind Oynex",
+        "description": "Our commitment to dermatological research is at the heart of everything we do. We leverage cutting-edge science and clinically-proven ingredients to create formulations that are both safe and exceptionally effective..."
+    },
+    "testimonials": {
+        "title": "Trusted by Professionals, Loved by You",
+        "subtitle": "Hear what our customers and dermatologists have to say about their experience with Oynex Pharma.",
+        "resultTitle": "Exceptional Results!",
+        "resultText": "I've struggled with oily skin for years, but Oynex's facial cleanser made a huge difference. My skin feels fresh and balanced all day — highly recommend!",
+        "resultName": "Sara Mahmoud",
+        "resultRole": "Customer",
+        "dermatologistTitle": "Trusted by Dermatologists",
+        "dermatologistText": "As a dermatologist, I appreciate how Oynex focuses on clean, clinically tested ingredients.",
+        "dermatologistName": "Dr. Omar El-Sayed",
+        "dermatologistRole": "Dermatologist",
+        "improvementTitle": "Visible Improvement!",
+        "improvementText": "After just a few weeks using Oynex Serum, my skin texture and tone look much more even. I finally feel confident going out without makeup.",
+        "improvementName": "Lina Youssef",
+        "improvementRole": "Customer"
+    },
+    "contact": {
+        "title": "Contact Us",
+        "subtitle": "We'd Love to Hear From You",
+        "description": "Help us improve our services with your feedback.",
+        "formTitle": "Send Us a Message",
+        "fullName": "Full Name",
+        "fullNamePlaceholder": "Enter your name",
+        "email": "Email",
+        "emailPlaceholder": "m@example.com",
+        "message": "Message",
+        "messagePlaceholder": "How can we help you?",
+        "submitButton": "Submit Your Message",
+        "infoTitle": "Our Information",
+        "address": "Address",
+        "addressDetails": "Cairo – Nasr City – Unit (B) in Makram Obeid – 6th Floor – Apartment 17",
+        "phone": "Phone",
+        "phoneDetails": "+20106988152 / 02-22741637",
+        "email": "Email",
+        "emailDetails": "www.oynexpharma@gmail.com"
+    },
+    "navbar": {
+        "logo": "Oynex Pharma",
+        "home": "Home",
+        "about": "About Us",
+        "products": "Products",
+        "contact": "Contact Us"
+    },
+      "footer": {
+    "companyDescription": "Your trusted partner in pharmaceutical excellence and healthcare solutions.",
+    "quickLinks": "Quick Links",
+    "home": "Home",
+    "about": "About Us",
+    "products": "Products",
+    "contactInfo": "Contact Info",
+    "address": "Cairo – Nasr City – Unit (B) in Makram Obeid – 6th Floor – Apartment 17",
+    "phone": "+20106988152 / 02-22741637",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  }
+}
