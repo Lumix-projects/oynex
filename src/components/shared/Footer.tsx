@@ -64,17 +64,17 @@ export default function Footer() {
             <h3 className="font-semibold text-lg">{t("footer.contactInfo")}</h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                <MapPin className="h-4 w-4 mt-0.5 shrink-0" />
                 <span>{t("footer.address")}</span>
               </li>
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Phone className="h-4 w-4 flex-shrink-0" />
+                <Phone className="h-4 w-4 shrink-0" />
                 <a href="tel:+20106988152" className="hover:text-primary transition-colors">
                   {t("footer.phone")}
                 </a>
               </li>
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Mail className="h-4 w-4 flex-shrink-0" />
+                <Mail className="h-4 w-4 shrink-0" />
                 <a
                   href="mailto:www.oynexpharma@gmail.com"
                   className="hover:text-primary transition-colors break-all"

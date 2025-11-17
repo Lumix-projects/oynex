@@ -1,7 +1,9 @@
 {
     "hero": {
         "title": "Revolutionizing Skincare Through Dermatological Science",
-        "subtitle": "Experience the pinnacle of dermatological innovation with our scientifically-formulated skincare products, designed to deliver visible results and promote lasting skincare"
+        "subtitle": "Experience the pinnacle of dermatological innovation with our scientifically-formulated skincare products, designed to deliver visible results and promote lasting skincare",
+        "alt": "Hero Image",
+        "button": "Explore Our Products"
     },
     "innovations": {
         "title": "Discover Our Innovations",
@@ -55,17 +57,28 @@
         "products": "Products",
         "contact": "Contact Us"
     },
-      "footer": {
-    "companyDescription": "Your trusted partner in pharmaceutical excellence and healthcare solutions.",
-    "quickLinks": "Quick Links",
-    "home": "Home",
-    "about": "About Us",
-    "products": "Products",
-    "contactInfo": "Contact Info",
-    "address": "Cairo – Nasr City – Unit (B) in Makram Obeid – 6th Floor – Apartment 17",
-    "phone": "+20106988152 / 02-22741637",
-    "rights": "All rights reserved.",
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Service"
-  }
+    "footer": {
+        "companyDescription": "Your trusted partner in pharmaceutical excellence and healthcare solutions.",
+        "quickLinks": "Quick Links",
+        "home": "Home",
+        "about": "About Us",
+        "products": "Products",
+        "contactInfo": "Contact Info",
+        "address": "Cairo – Nasr City – Unit (B) in Makram Obeid – 6th Floor – Apartment 17",
+        "phone": "+20106988152 / 02-22741637",
+        "rights": "All rights reserved.",
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Service"
+    },
+    "products": {
+        "keldenLab": "Kelden Laboratory",
+        "facialCleanser": "Facial Cleanser",
+        "sebumControl": "Sebum Control",
+        "skinSerum": "Anti-Hair Loss Shampoo",
+        "moisturizeRejuvenate": "Prevents Hair Loss & Promotes Growth",
+        "nightCream": "Night Cream",
+        "hydratingRepair": "Hydrating & Repairing",
+        "tapToSeeDetails": "Tap to see details",
+        "viewAll": "View All Products"
+    }
 }
