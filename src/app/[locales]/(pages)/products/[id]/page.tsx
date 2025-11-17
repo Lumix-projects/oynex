@@ -1,31 +1,38 @@
 import { products } from "@/lib/products";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { notFound } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 
 interface ProductDetailsProps {
-  params: {
+  params: Promise<{
+    locales: string;
     id: string;
-  };
+  }>;
 }
 
 export default async function ProductDetails({ params }: ProductDetailsProps) {
-  const { id } = await params;
+  const { id, locales } = await params;
   const productId = Number(id);
   const product = products.find((p) => p.id === productId);
 
   if (!product) return notFound();
 
   const details = product.details;
+  const t = await getTranslations();
+  const isRtl = locales === "ar";
 
   return (
-    <div className="min-h-screen pt-10 bg-background">
+    <div className="min-h-screen pt-10 bg-background" dir={isRtl ? "rtl" : "ltr"}>
       <div className="container mx-auto px-4 py-12 max-w-7xl">
         <Link
           href="/products"
-          className="group inline-block text-main my-5 transition-all duration-300"
+          className="group inline-flex items-center gap-2 text-main my-5 transition-all duration-300"
         >
-          ← <span className="group-hover:ps-2 transition-all duration-300"> Back To Products</span>
+          <span aria-hidden="true">{isRtl ? "→" : "←"}</span>
+          <span className="group-hover:ps-1 transition-all duration-300">
+            {t("productsPage.backToProducts")}
+          </span>
         </Link>
         {/* Hero Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
@@ -56,18 +63,20 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
             {/* Product Specs */}
             <div className="flex gap-4">
               <div className="flex-1 bg-foreground/20 border-2 border-foreground/20 rounded-xl p-4 text-center hover:border-main transition-colors">
-                <p className="text-main font-bold text-md mb-1">Size</p>
+                <p className="text-main font-bold text-md mb-1">{t("productsPage.size")}</p>
                 <p className="font-bold text-lg text-foreground">{details.productInfo.size}</p>
               </div>
               <div className="flex-1 bg-foreground/20 border-2 border-foreground/20 rounded-xl p-4 text-center hover:border-main transition-colors">
-                <p className="text-main font-bold text-md mb-1">Type</p>
+                <p className="text-main font-bold text-md mb-1">{t("productsPage.type")}</p>
                 <p className="font-bold text-lg text-foreground">{details.productInfo.type}</p>
               </div>
             </div>
 
             {/* Key Benefits */}
             <div className="bg-main/70 rounded-2xl p-6 border border-main/20">
-              <h3 className="text-xl font-bold mb-4 text-white">Key Benefits</h3>
+              <h3 className="text-xl font-bold mb-4 text-white">
+                {t("productsPage.keyBenefits")}
+              </h3>
               <ul className="space-y-3">
                 {details.keyBenefits.map((benefit, i) => (
                   <li key={i} className="flex items-start">
@@ -82,7 +91,9 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
 
         {/* How to Use */}
         <div className="bg-foreground/10 rounded-3xl shadow-xl p-10 mb-20">
-          <h2 className="text-3xl font-bold mb-10 text-center text-foreground">Who Should Use This?</h2>
+          <h2 className="text-3xl font-bold mb-10 text-center text-foreground">
+            {t("productsPage.whoShouldUse")}
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
             {details.howToUse.map((step) => (
               <div key={step.step} className="flex gap-4 p-5 rounded-2xl bg-background border border-background hover:border-main/30 hover:shadow-md transition-all">
@@ -102,7 +113,9 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
 
         {/* Key Ingredients */}
         <div className="mb-20">
-          <h2 className="text-3xl font-bold mb-10 text-center text-foreground">Key Ingredients</h2>
+          <h2 className="text-3xl font-bold mb-10 text-center text-foreground">
+            {t("productsPage.keyIngredients")}
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {details.keyIngredients.map((group, i) => (
               <div key={i} className="bg-foreground/10 rounded-2xl p-8 hover:shadow-lg transition-shadow border border-foreground/20">
@@ -123,7 +136,7 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
         <div className="bg-linear-to-r from-main to-blue-600 border-2 border-foreground/20 rounded-2xl p-8 mb-20 shadow-md">
           <h2 className="text-2xl font-bold mb-6 text-white flex items-center">
             <span className="text-3xl mr-3">⚠️</span>
-            Safety Information
+            {t("productsPage.safetyInfo")}
           </h2>
           <ul className="space-y-3">
             {details.safetyInfo.map((info, i) => (
@@ -137,7 +150,9 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
 
         {/* FAQ */}
         <div className="mb-20">
-          <h2 className="text-3xl font-bold mb-10 text-center text-foreground">Frequently Asked Questions</h2>
+          <h2 className="text-3xl font-bold mb-10 text-center text-foreground">
+            {t("productsPage.faq")}
+          </h2>
           <div className="space-y-4 max-w-4xl mx-auto">
             {details.faq.map((item, i) => (
               <div key={i} className="bg-foreground/10 rounded-2xl shadow-md hover:shadow-xl transition-shadow p-6 border border-foreground/20">

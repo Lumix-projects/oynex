@@ -1,6 +1,5 @@
 "use client";
 
-import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -9,9 +8,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { useLocalization } from "@/hooks/useLocalization";
 
 export function CardDemo() {
-  const { t, i18n } = useTranslation("common");
+  const { t, isRtl } = useLocalization();
 
   return (
     <Card className="w-full">
@@ -22,11 +22,7 @@ export function CardDemo() {
         <form className="w-full">
           <div className="flex flex-col gap-6">
             {/* Full Name */}
-            <div
-              className={`flex flex-col gap-2 ${
-                i18n.language === "ar" ? "text-right" : "text-left"
-              }`}
-            >
+            <div className={`flex flex-col gap-2 ${isRtl ? "text-right" : "text-left"}`}>
               <label htmlFor="name" className="text-sm font-medium">
                 {t("contact.fullName")}
               </label>
@@ -40,11 +36,7 @@ export function CardDemo() {
             </div>
 
             {/* Email */}
-            <div
-              className={`flex flex-col gap-2 ${
-                i18n.language === "ar" ? "text-right" : "text-left"
-              }`}
-            >
+            <div className={`flex flex-col gap-2 ${isRtl ? "text-right" : "text-left"}`}>
               <label htmlFor="email" className="text-sm font-medium">
                 {t("contact.email")}
               </label>
@@ -58,11 +50,7 @@ export function CardDemo() {
             </div>
 
             {/* Message */}
-            <div
-              className={`flex flex-col gap-2 ${
-                i18n.language === "ar" ? "text-right" : "text-left"
-              }`}
-            >
+            <div className={`flex flex-col gap-2 ${isRtl ? "text-right" : "text-left"}`}>
               <label htmlFor="message" className="text-sm font-medium">
                 {t("contact.message")}
               </label>

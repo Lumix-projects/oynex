@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "./button";
-import { useTranslation } from "react-i18next";
+import { useLocalization } from "@/hooks/useLocalization";
 
 const products = [
   {
@@ -21,8 +21,7 @@ const products = [
 
 
 function ProductCard() {
-  const { t, i18n } = useTranslation("common");
-  const isRtl = i18n.language === "ar";
+  const { t, isRtl } = useLocalization();
 
   return (
     <section className="flex flex-col items-center" dir={isRtl ? "rtl" : "ltr"}>

@@ -47,7 +47,7 @@
         "addressDetails": "Cairo – Nasr City – Unit (B) in Makram Obeid – 6th Floor – Apartment 17",
         "phone": "Phone",
         "phoneDetails": "+20106988152 / 02-22741637",
-        "email": "Email",
+        "emailLabel": "Email",
         "emailDetails": "www.oynexpharma@gmail.com"
     },
     "navbar": {
@@ -68,7 +68,13 @@
         "phone": "+20106988152 / 02-22741637",
         "rights": "All rights reserved.",
         "privacy": "Privacy Policy",
-        "terms": "Terms of Service"
+        "terms": "Terms of Service",
+        "companyName": "Oynex Pharma"
+    },
+    "common": {
+        "locationMap": "Location Map",
+        "appLogo": "App Logo",
+        "companyLogo": "Company Logo"
     },
     "products": {
         "keldenLab": "Kelden Laboratory",
@@ -80,6 +86,19 @@
         "hydratingRepair": "Hydrating & Repairing",
         "tapToSeeDetails": "Tap to see details",
         "viewAll": "View All Products"
+    },
+    "productsPage": {
+        "title": "Our Dermatological Solutions",
+        "subtitle": "Discover Oynex Pharma's commitment to science-backed skincare and product quality, designed to deliver exceptional results for your skin health.",
+        "viewDetails": "View Details",
+        "backToProducts": "Back To Products",
+        "size": "Size",
+        "type": "Type",
+        "keyBenefits": "Key Benefits",
+        "whoShouldUse": "Who Should Use This?",
+        "keyIngredients": "Key Ingredients",
+        "safetyInfo": "Safety Information",
+        "faq": "Frequently Asked Questions"
     },
     "about": {
         "hero": {

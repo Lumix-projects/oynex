@@ -1,8 +1,21 @@
 "use client";
 
-import { ReactNode } from "react";
-import "@/lib/i18n"; // استدعاء i18next بعد ما نخلي المكون Client
+import { type ReactNode } from "react";
+import {
+  NextIntlClientProvider,
+  type AbstractIntlMessages,
+} from "next-intl";
 
-export function I18nProvider({ children }: { children: ReactNode }) {
-  return <>{children}</>;
+type Props = {
+  locale: string;
+  messages: AbstractIntlMessages;
+  children: ReactNode;
+};
+
+export function I18nProvider({ locale, messages, children }: Props) {
+  return (
+    <NextIntlClientProvider locale={locale} messages={messages}>
+      {children}
+    </NextIntlClientProvider>
+  );
 }

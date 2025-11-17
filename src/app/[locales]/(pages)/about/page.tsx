@@ -1,19 +1,12 @@
 "use client";
 
 import HeroSection from "@/components/shared/Hero";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { useTranslation } from "react-i18next";
+import { Link } from "@/i18n/navigation";
+import { useLocalization } from "@/hooks/useLocalization";
 
 export default function AboutPage() {
-  const { t, i18n } = useTranslation("common");
-  const isRtl = i18n.language === "ar";
+  const { t, dir } = useLocalization();
 
   return (
     <>
@@ -22,10 +15,7 @@ export default function AboutPage() {
         subtitle={t("about.hero.subtitle")}
         title={t("about.hero.title")}
       />
-      <main
-        className="container mx-auto my-20  gap-8 px-4 md:px-8 xl:px-0"
-        dir={isRtl ? "rtl" : "ltr"}
-      >
+      <main className="container mx-auto my-20 gap-8 px-4 md:px-8 xl:px-0" dir={dir}>
         {/* Main Content */}
         <div className="space-y-10 xl:space-y-14 col-span-1 xl:col-span-3">
           <AboutSection
@@ -51,8 +41,6 @@ export default function AboutPage() {
             <p>{t("about.ourCommitment.paragraph1")}</p>
           </AboutSection>
         </div>
-
-        {/* Certification Box */}
 
         {/* Call to action */}
         <div className="xl:col-span-4 flex flex-col items-center justify-center gap-5 md:gap-7 p-10 mt-20 rounded-xl shadow bg-main text-white text-center">

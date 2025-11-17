@@ -7,10 +7,10 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { useTranslation } from "react-i18next";
+import { useLocalization } from "@/hooks/useLocalization";
 
 export default function Carouselsection() {
-  const { t } = useTranslation("common");
+  const { t } = useLocalization();
 
   const testimonials = [
     {

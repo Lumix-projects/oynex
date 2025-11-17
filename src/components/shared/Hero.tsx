@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { useTranslation } from "react-i18next";
+import { useLocalization } from "@/hooks/useLocalization";
 
 interface HeroProps {
   img: string;
@@ -12,16 +12,15 @@ interface HeroProps {
 }
 
 export default function HeroSection({ img, title, subtitle, button }: HeroProps) {
-  const { i18n, t } = useTranslation("common");
-  const isRtl = i18n.language === "ar";
+  const { t, dir } = useLocalization();
 
   return (
-    <section className="relative w-full h-screen overflow-hidden" dir={isRtl ? "rtl" : "ltr"}>
+    <section className="relative w-full h-screen overflow-hidden" dir={dir}>
       {/* Background Image */}
       <div className="absolute inset-0 scale-105 animate-zoom-smooth">
         <Image
           src={img}
-          alt={t("hero.alt") || "Hero Image"}
+          alt={t("hero.alt")}
           fill
           className="object-cover"
         />
@@ -30,10 +29,10 @@ export default function HeroSection({ img, title, subtitle, button }: HeroProps)
       {/* Heading */}
       <div className="absolute inset-0 flex flex-col gap-5 items-center justify-center text-center bg-black/40 px-4">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold max-w-6xl text-white leading-tight drop-shadow-lg">
-          {t(title)}
+          {title}
         </h1>
         <p className="text-base sm:text-lg md:text-xl text-white/60 max-w-2xl drop-shadow">
-          {t(subtitle)}
+          {subtitle}
         </p>
 
         {/* Button */}

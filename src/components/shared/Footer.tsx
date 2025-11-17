@@ -2,23 +2,22 @@
 
 import { Barcode, Home, Mail, MapPin, Phone, User } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { Separator } from "../ui/separator";
-import { useTranslation } from "react-i18next";
+import { Link } from "@/i18n/navigation";
+import { useLocalization } from "@/hooks/useLocalization";
 
 export default function Footer() {
-  const { t, i18n } = useTranslation("common");
-  const isRtl = i18n.language === "ar";
+  const { t, dir, isRtl } = useLocalization();
 
   return (
-    <footer className="border-t bg-background" dir={isRtl ? "rtl" : "ltr"}>
+    <footer className="border-t bg-background" dir={dir}>
       <div className="container mx-auto px-4 py-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Company Info */}
           <div className="space-y-4 text-left" style={{ textAlign: isRtl ? "right" : "left" }}>
             <Link href="/" className="flex gap-2 items-center">
-              <Image src="/logo.png" alt="company logo" width={25} height={25} />
-              <h6 className="font-bold text-lg">Oynex Pharma</h6>
+              <Image src="/logo.png" alt={t("common.companyLogo")} width={25} height={25} />
+              <h6 className="font-bold text-lg">{t("footer.companyName")}</h6>
             </Link>
             <p className="text-sm text-muted-foreground max-w-xs">
               {t("footer.companyDescription")}
@@ -94,7 +93,7 @@ export default function Footer() {
           style={{ textAlign: isRtl ? "right" : "left" }}
         >
           <p className="text-center md:text-left">
-            © {new Date().getFullYear()} Oynex Pharma. {t("footer.rights")}
+            © {new Date().getFullYear()} {t("footer.companyName")}. {t("footer.rights")}
           </p>
           <div className="flex gap-4">
             <Link href="/privacy" className="hover:text-primary transition-colors">
