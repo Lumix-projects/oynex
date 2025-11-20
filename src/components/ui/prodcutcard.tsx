@@ -1,14 +1,15 @@
 "use client";
 
+import Link from "next/link";
 import { Button } from "./button";
 import { useLocalization } from "@/hooks/useLocalization";
 
 const products = [
   {
     img: "/product1.jpg",
-    brandKey: "products.keldenLab",      // مفتاح الترجمة للبراند
-    nameKey: "products.facialCleanser",  // مفتاح الترجمة لاسم المنتج
-    descKey: "products.sebumControl",    // مفتاح الترجمة للوصف
+    brandKey: "products.keldenLab", // مفتاح الترجمة للبراند
+    nameKey: "products.facialCleanser", // مفتاح الترجمة لاسم المنتج
+    descKey: "products.sebumControl", // مفتاح الترجمة للوصف
   },
   {
     img: "/product2.jpg",
@@ -16,9 +17,7 @@ const products = [
     nameKey: "products.skinSerum",
     descKey: "products.moisturizeRejuvenate",
   },
-
 ];
-
 
 function ProductCard() {
   const { t, isRtl } = useLocalization();
@@ -76,8 +75,8 @@ function ProductCard() {
         ))}
       </div>
 
-      <Button variant="main" className="mt-10">
-        {t("products.viewAll")}
+      <Button variant="main" className="mt-10" asChild>
+        <Link href={"/products"}>{t("products.viewAll")}</Link>
       </Button>
     </section>
   );
