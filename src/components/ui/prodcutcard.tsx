@@ -1,75 +1,47 @@
 "use client";
-
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { Button } from "./button";
 import { useLocalization } from "@/hooks/useLocalization";
-
-const products = [
-  {
-    img: "/product1.jpg",
-    brandKey: "products.keldenLab", // مفتاح الترجمة للبراند
-    nameKey: "products.facialCleanser", // مفتاح الترجمة لاسم المنتج
-    descKey: "products.sebumControl", // مفتاح الترجمة للوصف
-  },
-  {
-    img: "/product2.jpg",
-    brandKey: "products.keldenLab",
-    nameKey: "products.skinSerum",
-    descKey: "products.moisturizeRejuvenate",
-  },
-];
+import Image from "next/image";
+import { productsAR, productsEN } from "@/lib/products";
 
 function ProductCard() {
-  const { t, isRtl } = useLocalization();
+  const { t, isRtl, locale } = useLocalization();
+  const products = locale === "ar" ? productsAR : productsEN;
 
   return (
     <section className="flex flex-col items-center" dir={isRtl ? "rtl" : "ltr"}>
-      <div className="container p-5 sm:p-0 mx-auto flex flex-wrap justify-center gap-8 justify-items-center">
-        {products.map((product, index) => (
+      <div className="container p-5 sm:p-0 mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+        {products.map((product) => (
           <div
-            key={index}
-            className="group relative max-w-md h-full sm:h-96 rounded-2xl overflow-hidden shadow-md bg-background cursor-pointer"
+            key={product.id}
+            className="group flex flex-col items-center text-center rounded-2xl shadow-md shadow-foreground/5 transition-all duration-500 overflow-hidden hover:-translate-y-2 hover:shadow-2xl max-w-sm first:place-self-end last:place-self-start"
           >
-            {/* product */}
-            <img
-              src={product.img}
-              alt={product.nameKey}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-
-            {/* tap to see details */}
-            <div className="absolute bottom-4 inset-x-0 flex items-center justify-center opacity-80 group-hover:opacity-0 transition-opacity duration-300">
-              <span className="text-white text-sm bg-black/40 px-3 py-1 rounded-full backdrop-blur-sm">
-                {t("products.tapToSeeDetails")}
-              </span>
+            {/* Product Image */}
+            <div className="relative w-full h-96 overflow-hidden rounded-t-2xl">
+              <Image
+                src={product.img}
+                alt={product.title}
+                fill
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+              />
+              {/* subtle overlay for contrast */}
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-500"></div>
             </div>
 
-            {/* overlay */}
-            <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col items-center justify-center gap-2 text-white">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-8 h-8 mb-2 opacity-90 transition-transform duration-500 group-hover:scale-110"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                />
-              </svg>
+            {/* Product Content */}
+            <div className="px-5 py-6 bg-foreground/5 flex flex-col items-center justify-between flex-1">
+              <div className="transition-all duration-500 group-hover:-translate-y-1">
+                <h4 className="text-xl font-semibold mb-2">{product.title}</h4>
+                <p className="text-sm text-main mb-4">{product.description}</p>
+              </div>
 
-              {/* details */}
-              <h2 className="text-2xl font-semibold">{t(product.brandKey)}</h2>
-              <h2 className="text-xl font-semibold">{t(product.nameKey)}</h2>
-              <h6 className="text-sm text-white/80">{t(product.descKey)}</h6>
+              <Link
+                href={`/products/${product.id}`}
+                className="text-white bg-main px-5 py-2 rounded-full hover:opacity-90 transition-all duration-300 group-hover:scale-105"
+              >
+                {t("productsPage.viewDetails")}
+              </Link>
             </div>
           </div>
         ))}

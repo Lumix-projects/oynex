@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { useLocalization } from "@/hooks/useLocalization";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 interface HeroProps {
   img: string;
@@ -38,7 +38,7 @@ export default function HeroSection({
 
         {/* Button */}
         {button && (
-          <Button variant="main">
+          <Button variant="main" asChild>
             <Link href={"/about"}>{t("hero.button")}</Link>
           </Button>
         )}
