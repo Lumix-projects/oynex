@@ -10,7 +10,7 @@ import {
 import { useLocalization } from "@/hooks/useLocalization";
 
 export default function Carouselsection() {
-  const { t } = useLocalization();
+  const { t, isRtl } = useLocalization();
 
   const testimonials = [
     {
@@ -41,19 +41,29 @@ export default function Carouselsection() {
           opts={{
             align: "start",
             loop: true,
+            direction: isRtl ? "rtl" : "ltr",
           }}
+          dir={isRtl ? "rtl" : "ltr"}
         >
-          <CarouselContent className="-ml-4">
+          <CarouselContent
+            className={isRtl ? "-mr-4" : "-ml-4"}
+            style={isRtl ? { direction: "rtl" } : { direction: "ltr" }}
+          >
             {testimonials.map((item, index) => (
               <CarouselItem
                 key={index}
-                className="pl-4 basis-[85%] sm:basis-[75%] md:basis-[55%] lg:basis-[45%]"
+                className={`${
+                  isRtl ? "pr-4" : "pl-4"
+                } basis-[85%] sm:basis-[75%] md:basis-[55%] lg:basis-[45%]`}
               >
-                <div className="p-6 sm:p-8 border rounded-2xl bg-background shadow-md h-full">
+                <div
+                  className="p-6 sm:p-8 border rounded-2xl bg-background shadow-md h-full text-center"
+                  dir={isRtl ? "rtl" : "ltr"}
+                >
                   <h3 className="text-lg sm:text-xl font-semibold mb-2 text-main">
                     {item.title}
                   </h3>
-                  <p className="text-foreground/60 italic mb-4 text-sm sm:text-base">
+                  <p className="text-foreground/60 italic mb-4 text-sm sm:text-base leading-relaxed">
                     {item.text}
                   </p>
                   <div className="flex flex-col items-center">
@@ -69,7 +79,7 @@ export default function Carouselsection() {
             ))}
           </CarouselContent>
 
-          {/* Controls */}
+          {/* Controls - they should automatically flip in RTL */}
           <CarouselPrevious className="hidden sm:flex" />
           <CarouselNext className="hidden sm:flex" />
         </Carousel>

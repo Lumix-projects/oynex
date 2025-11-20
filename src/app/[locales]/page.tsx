@@ -54,7 +54,10 @@ export default function Home() {
 
       {/* Testimonials */}
       <section className="bg-foreground/5">
-        <section className="container mx-auto py-16 px-6 text-center">
+        <section
+          className="container mx-auto py-16 px-6 text-center"
+          dir={isRtl ? "rtl" : "ltr"}
+        >
           <Headings
             title={t("testimonials.title")}
             subtitle={t("testimonials.subtitle")}
@@ -66,7 +69,10 @@ export default function Home() {
       </section>
 
       {/* Contact us */}
-      <section id="contact" className="container mx-auto py-20 px-6 text-center">
+      <section
+        id="contact"
+        className="container mx-auto py-20 px-6 text-center"
+      >
         <h6 className="text-sm text-main font-medium">
           {t("contact.subtitle")}
         </h6>
