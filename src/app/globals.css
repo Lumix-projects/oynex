@@ -123,6 +123,9 @@
   body {
     @apply bg-background text-foreground;
   }
+  html {
+    scroll-behavior: smooth;
+  }
 }
 ::-webkit-scrollbar {
   width: 8px;
@@ -169,7 +172,6 @@
 .animate-fadeIn {
   animation: fadeIn 1s ease-out;
 }
-
 
 /* اتجاه الصفحة حسب اللغة */
 html[dir="rtl"] {

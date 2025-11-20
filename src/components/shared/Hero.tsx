@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { useLocalization } from "@/hooks/useLocalization";
+import Link from "next/link";
 
 interface HeroProps {
   img: string;
@@ -11,19 +12,19 @@ interface HeroProps {
   button?: boolean;
 }
 
-export default function HeroSection({ img, title, subtitle, button }: HeroProps) {
+export default function HeroSection({
+  img,
+  title,
+  subtitle,
+  button,
+}: HeroProps) {
   const { t, dir } = useLocalization();
 
   return (
     <section className="relative w-full h-screen overflow-hidden" dir={dir}>
       {/* Background Image */}
       <div className="absolute inset-0 scale-105 animate-zoom-smooth">
-        <Image
-          src={img}
-          alt={t("hero.alt")}
-          fill
-          className="object-cover"
-        />
+        <Image src={img} alt={t("hero.alt")} fill className="object-cover" />
       </div>
 
       {/* Heading */}
@@ -37,7 +38,9 @@ export default function HeroSection({ img, title, subtitle, button }: HeroProps)
 
         {/* Button */}
         {button && (
-          <Button variant="main">{t("hero.button")}</Button>
+          <Button variant="main">
+            <Link href={"/about"}>{t("hero.button")}</Link>
+          </Button>
         )}
       </div>
     </section>
