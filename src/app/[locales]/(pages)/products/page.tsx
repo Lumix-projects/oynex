@@ -1,10 +1,14 @@
-import { products } from "@/lib/products";
+"use client";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
-import { getTranslations } from "next-intl/server";
+import { useLocalization } from "@/hooks/useLocalization";
+import { productsAR, productsEN } from "@/lib/products";
 
-export default async function ProductsPage() {
-  const t = await getTranslations();
+export default function ProductsPage() {
+  const { t, dir, locale } = useLocalization();
+
+  // Choose products based on current language
+  const products = locale === "ar" ? productsAR : productsEN;
 
   return (
     <>
@@ -13,7 +17,10 @@ export default async function ProductsPage() {
         <p className="max-w-lg text-main">{t("productsPage.subtitle")}</p>
       </header>
 
-      <main className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 my-10 px-4">
+      <main
+        className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 my-10 px-4"
+        dir={dir}
+      >
         {products.map((product) => (
           <div
             key={product.id}

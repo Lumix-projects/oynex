@@ -1,8 +1,11 @@
-import { products } from "@/lib/products";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+"use client";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { notFound } from "next/navigation";
-import { getTranslations } from "next-intl/server";
+import { useLocalization } from "@/hooks/useLocalization";
+import { useEffect, useState } from "react";
+import { productsAR, productsEN } from "@/lib/products";
 
 interface ProductDetailsProps {
   params: Promise<{
@@ -11,19 +14,52 @@ interface ProductDetailsProps {
   }>;
 }
 
-export default async function ProductDetails({ params }: ProductDetailsProps) {
-  const { id, locales } = await params;
-  const productId = Number(id);
-  const product = products.find((p) => p.id === productId);
+export default function ProductDetails({ params }: ProductDetailsProps) {
+  const { t, locale } = useLocalization();
+  const [resolvedParams, setResolvedParams] = useState<{
+    locales: string;
+    id: string;
+  } | null>(null);
+  const [product, setProduct] = useState<any>(null);
+
+  useEffect(() => {
+    async function resolveParams() {
+      const resolved = await params;
+      setResolvedParams(resolved);
+
+      // Choose products based on current locale
+      const products = locale === "ar" ? productsAR : productsEN;
+      const productId = Number(resolved.id);
+      const foundProduct = products.find((p) => p.id === productId);
+
+      setProduct(foundProduct);
+    }
+
+    resolveParams();
+  }, [params, locale]);
+
+  // Show loading state while resolving
+  if (!resolvedParams || !product) {
+    return (
+      <div className="min-h-screen pt-24 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-main mx-auto"></div>
+          <p className="mt-4 text-main">Loading...</p>
+        </div>
+      </div>
+    );
+  }
 
   if (!product) return notFound();
 
   const details = product.details;
-  const t = await getTranslations();
-  const isRtl = locales === "ar";
+  const isRtl = locale === "ar";
 
   return (
-    <div className="min-h-screen pt-10 bg-background" dir={isRtl ? "rtl" : "ltr"}>
+    <div
+      className="min-h-screen pt-10 bg-background"
+      dir={isRtl ? "rtl" : "ltr"}
+    >
       <div className="container mx-auto px-4 py-12 max-w-7xl">
         <Link
           href="/products"
@@ -63,12 +99,20 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
             {/* Product Specs */}
             <div className="flex gap-4">
               <div className="flex-1 bg-foreground/20 border-2 border-foreground/20 rounded-xl p-4 text-center hover:border-main transition-colors">
-                <p className="text-main font-bold text-md mb-1">{t("productsPage.size")}</p>
-                <p className="font-bold text-lg text-foreground">{details.productInfo.size}</p>
+                <p className="text-main font-bold text-md mb-1">
+                  {t("productsPage.size")}
+                </p>
+                <p className="font-bold text-lg text-foreground">
+                  {details.productInfo.size}
+                </p>
               </div>
               <div className="flex-1 bg-foreground/20 border-2 border-foreground/20 rounded-xl p-4 text-center hover:border-main transition-colors">
-                <p className="text-main font-bold text-md mb-1">{t("productsPage.type")}</p>
-                <p className="font-bold text-lg text-foreground">{details.productInfo.type}</p>
+                <p className="text-main font-bold text-md mb-1">
+                  {t("productsPage.type")}
+                </p>
+                <p className="font-bold text-lg text-foreground">
+                  {details.productInfo.type}
+                </p>
               </div>
             </div>
 
@@ -78,7 +122,7 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
                 {t("productsPage.keyBenefits")}
               </h3>
               <ul className="space-y-3">
-                {details.keyBenefits.map((benefit, i) => (
+                {details.keyBenefits.map((benefit: any, i: any) => (
                   <li key={i} className="flex items-start">
                     <span className="text-main mr-3 text-xl font-bold">✓</span>
                     <span className="text-white/70">{benefit}</span>
@@ -95,16 +139,23 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
             {t("productsPage.whoShouldUse")}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-            {details.howToUse.map((step) => (
-              <div key={step.step} className="flex gap-4 p-5 rounded-2xl bg-background border border-background hover:border-main/30 hover:shadow-md transition-all">
+            {details.howToUse.map((step: any) => (
+              <div
+                key={step.step}
+                className="flex gap-4 p-5 rounded-2xl bg-background border border-background hover:border-main/30 hover:shadow-md transition-all"
+              >
                 <div className="shrink-0">
                   <div className="w-12 h-12 bg-linear-to-br from-main to-blue-600 text-white rounded-xl flex items-center justify-center text-lg font-bold shadow-md">
                     {step.step}
                   </div>
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-bold mb-2 text-base text-foreground">{step.title}</h3>
-                  <p className="text-foreground/70 text-sm leading-relaxed">{step.text}</p>
+                  <h3 className="font-bold mb-2 text-base text-foreground">
+                    {step.title}
+                  </h3>
+                  <p className="text-foreground/70 text-sm leading-relaxed">
+                    {step.text}
+                  </p>
                 </div>
               </div>
             ))}
@@ -117,13 +168,21 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
             {t("productsPage.keyIngredients")}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {details.keyIngredients.map((group, i) => (
-              <div key={i} className="bg-foreground/10 rounded-2xl p-8 hover:shadow-lg transition-shadow border border-foreground/20">
-                <h3 className="font-bold text-xl mb-5 text-foreground">{group.category}</h3>
+            {details.keyIngredients.map((group: any, i: any) => (
+              <div
+                key={i}
+                className="bg-foreground/10 rounded-2xl p-8 hover:shadow-lg transition-shadow border border-foreground/20"
+              >
+                <h3 className="font-bold text-xl mb-5 text-foreground">
+                  {group.category}
+                </h3>
                 <ul className="space-y-3">
-                  {group.ingredients.map((ing, j) => (
+                  {group.ingredients.map((ing: any, j: any) => (
                     <li key={j} className="text-foreground/70">
-                      <span className="font-semibold text-main">{ing.name}:</span> {ing.text}
+                      <span className="font-semibold text-main">
+                        {ing.name}:
+                      </span>{" "}
+                      {ing.text}
                     </li>
                   ))}
                 </ul>
@@ -139,7 +198,7 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
             {t("productsPage.safetyInfo")}
           </h2>
           <ul className="space-y-3">
-            {details.safetyInfo.map((info, i) => (
+            {details.safetyInfo.map((info: any, i: any) => (
               <li key={i} className="flex items-start text-white/70">
                 <span className="text-yellow-600 mr-3 font-bold">•</span>
                 <span>{info}</span>
@@ -154,10 +213,17 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
             {t("productsPage.faq")}
           </h2>
           <div className="space-y-4 max-w-4xl mx-auto">
-            {details.faq.map((item, i) => (
-              <div key={i} className="bg-foreground/10 rounded-2xl shadow-md hover:shadow-xl transition-shadow p-6 border border-foreground/20">
-                <h3 className="font-bold text-lg mb-3 text-foreground">{item.question}</h3>
-                <p className="text-foreground/70 leading-relaxed">{item.answer}</p>
+            {details.faq.map((item: any, i: any) => (
+              <div
+                key={i}
+                className="bg-foreground/10 rounded-2xl shadow-md hover:shadow-xl transition-shadow p-6 border border-foreground/20"
+              >
+                <h3 className="font-bold text-lg mb-3 text-foreground">
+                  {item.question}
+                </h3>
+                <p className="text-foreground/70 leading-relaxed">
+                  {item.answer}
+                </p>
               </div>
             ))}
           </div>
@@ -166,7 +232,7 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
         {/* Badges */}
         <div className="bg-foreground/10 rounded-3xl p-12">
           <div className="flex flex-wrap justify-center gap-10 items-center">
-            {details.badges.map((badge, i) => (
+            {details.badges.map((badge: any, i: any) => (
               <div key={i} className="text-center group">
                 <div className="w-24 h-24 bg-background/80 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all">
                   <span className="text-3xl">{badge.icon}</span>
@@ -178,7 +244,6 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
             ))}
           </div>
         </div>
-
       </div>
     </div>
   );
