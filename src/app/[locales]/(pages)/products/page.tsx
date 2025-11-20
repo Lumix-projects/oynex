@@ -1,20 +1,26 @@
-import { products } from "@/lib/products";
+"use client";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { useLocalization } from "@/hooks/useLocalization";
+import { productsAR, productsEN } from "@/lib/products";
 
 export default function ProductsPage() {
+  const { t, dir, locale } = useLocalization();
+
+  // Choose products based on current language
+  const products = locale === "ar" ? productsAR : productsEN;
+
   return (
     <>
       <header className="flex flex-col justify-center items-center text-center gap-3 mt-24 mb-5">
-        <h3 className="text-4xl font-bold">Our Dermatological Solutions</h3>
-        <p className="max-w-lg text-main">
-          Discover Oynex Pharma&apos;s commitment to science-backed skincare and
-          product quality, designed to deliver exceptional results for your skin
-          health.
-        </p>
+        <h3 className="text-4xl font-bold">{t("productsPage.title")}</h3>
+        <p className="max-w-lg text-main">{t("productsPage.subtitle")}</p>
       </header>
 
-      <main className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 my-10 px-4">
+      <main
+        className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 my-10 px-4"
+        dir={dir}
+      >
         {products.map((product) => (
           <div
             key={product.id}
@@ -43,7 +49,7 @@ export default function ProductsPage() {
                 href={`/products/${product.id}`}
                 className="text-white bg-main px-5 py-2 rounded-full hover:opacity-90 transition-all duration-300 group-hover:scale-105"
               >
-                View Details
+                {t("productsPage.viewDetails")}
               </Link>
             </div>
           </div>

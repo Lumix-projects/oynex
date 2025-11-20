@@ -1,53 +1,52 @@
+"use client";
+
 import { Button } from "./button";
+import { useLocalization } from "@/hooks/useLocalization";
 
 const products = [
   {
     img: "/product1.jpg",
-    brand: "Kelden Laboratory",
-    name: "Facial Cleanser",
-    desc: "Sebum Control",
+    brandKey: "products.keldenLab",      // مفتاح الترجمة للبراند
+    nameKey: "products.facialCleanser",  // مفتاح الترجمة لاسم المنتج
+    descKey: "products.sebumControl",    // مفتاح الترجمة للوصف
   },
   {
     img: "/product2.jpg",
-    brand: "Kelden Laboratory",
-    name: "Skin Serum",
-    desc: "Moisturize & Rejuvenate",
-  },
-  {
-    img: "/product1.jpg",
-    brand: "Kelden Laboratory",
-    name: "Facial Cleanser",
-    desc: "Sebum Control",
+    brandKey: "products.keldenLab",
+    nameKey: "products.skinSerum",
+    descKey: "products.moisturizeRejuvenate",
   },
 
 ];
 
+
 function ProductCard() {
+  const { t, isRtl } = useLocalization();
+
   return (
-    <section className="flex flex-col items-center">
+    <section className="flex flex-col items-center" dir={isRtl ? "rtl" : "ltr"}>
       <div className="container p-5 sm:p-0 mx-auto flex flex-wrap justify-center gap-8 justify-items-center">
         {products.map((product, index) => (
           <div
             key={index}
-            className="group relative max-w-md h-full sm:h-96  rounded-2xl overflow-hidden shadow-md bg-background cursor-pointer"
+            className="group relative max-w-md h-full sm:h-96 rounded-2xl overflow-hidden shadow-md bg-background cursor-pointer"
           >
             {/* product */}
             <img
               src={product.img}
-              alt={product.name}
+              alt={product.nameKey}
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
 
             {/* tap to see details */}
             <div className="absolute bottom-4 inset-x-0 flex items-center justify-center opacity-80 group-hover:opacity-0 transition-opacity duration-300">
               <span className="text-white text-sm bg-black/40 px-3 py-1 rounded-full backdrop-blur-sm">
-                Tap to see details
+                {t("products.tapToSeeDetails")}
               </span>
             </div>
 
             {/* overlay */}
             <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col items-center justify-center gap-2 text-white">
-              {/* icon */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-8 h-8 mb-2 opacity-90 transition-transform duration-500 group-hover:scale-110"
@@ -69,14 +68,17 @@ function ProductCard() {
               </svg>
 
               {/* details */}
-              <h2 className="text-2xl font-semibold">{product.brand}</h2>
-              <h2 className="text-xl font-semibold">{product.name}</h2>
-              <h6 className="text-sm text-white/80">{product.desc}</h6>
+              <h2 className="text-2xl font-semibold">{t(product.brandKey)}</h2>
+              <h2 className="text-xl font-semibold">{t(product.nameKey)}</h2>
+              <h6 className="text-sm text-white/80">{t(product.descKey)}</h6>
             </div>
           </div>
         ))}
       </div>
-      <Button variant="main" className="mt-10">View All Products</Button>
+
+      <Button variant="main" className="mt-10">
+        {t("products.viewAll")}
+      </Button>
     </section>
   );
 }

@@ -1,21 +1,32 @@
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
+"use client";
 
-export default function HeroSection({ img, title, subtitle, button }: { img: string; title: string; subtitle: string; button?: boolean }) {
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { useLocalization } from "@/hooks/useLocalization";
+
+interface HeroProps {
+  img: string;
+  title: string;
+  subtitle: string;
+  button?: boolean;
+}
+
+export default function HeroSection({ img, title, subtitle, button }: HeroProps) {
+  const { t, dir } = useLocalization();
+
   return (
-    <section className="relative w-full h-screen overflow-hidden">
+    <section className="relative w-full h-screen overflow-hidden" dir={dir}>
+      {/* Background Image */}
       <div className="absolute inset-0 scale-105 animate-zoom-smooth">
-
-        {/* image */}
         <Image
           src={img}
-          alt="Hero Image"
+          alt={t("hero.alt")}
           fill
-          className="object-cover "
+          className="object-cover"
         />
       </div>
 
-      {/* heading */}
+      {/* Heading */}
       <div className="absolute inset-0 flex flex-col gap-5 items-center justify-center text-center bg-black/40 px-4">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold max-w-6xl text-white leading-tight drop-shadow-lg">
           {title}
@@ -24,11 +35,11 @@ export default function HeroSection({ img, title, subtitle, button }: { img: str
           {subtitle}
         </p>
 
-        {/* button */}
+        {/* Button */}
         {button && (
-          <Button variant={"main"}>Explore Our Products</Button>
+          <Button variant="main">{t("hero.button")}</Button>
         )}
       </div>
     </section>
-  )
+  );
 }

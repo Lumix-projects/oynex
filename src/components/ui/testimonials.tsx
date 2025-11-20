@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Carousel,
   CarouselContent,
@@ -5,31 +7,34 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { useLocalization } from "@/hooks/useLocalization";
 
 export default function Carouselsection() {
+  const { t } = useLocalization();
+
   const testimonials = [
     {
-      title: "Exceptional Results!",
-      text: "I've struggled with oily skin for years, but Oynex's facial cleanser made a huge difference. My skin feels fresh and balanced all day — highly recommend!",
-      name: "Sara Mahmoud",
-      role: "Customer",
+      title: t("testimonials.resultTitle"),
+      text: t("testimonials.resultText"),
+      name: t("testimonials.resultName"),
+      role: t("testimonials.resultRole"),
     },
     {
-      title: "Trusted by Dermatologists",
-      text: "As a dermatologist, I appreciate how Oynex focuses on clean, clinically tested ingredients.",
-      name: "Dr. Omar El-Sayed",
-      role: "Dermatologist",
+      title: t("testimonials.dermatologistTitle"),
+      text: t("testimonials.dermatologistText"),
+      name: t("testimonials.dermatologistName"),
+      role: t("testimonials.dermatologistRole"),
     },
     {
-      title: "Visible Improvement!",
-      text: "After just a few weeks using Oynex Serum, my skin texture and tone look much more even. I finally feel confident going out without makeup.",
-      name: "Lina Youssef",
-      role: "Customer",
+      title: t("testimonials.improvementTitle"),
+      text: t("testimonials.improvementText"),
+      name: t("testimonials.improvementName"),
+      role: t("testimonials.improvementRole"),
     },
   ];
 
   return (
-    <section className="container mx-auto text-center px-4 sm:px-6 lg:px-8 ">
+    <section className="container mx-auto text-center px-4 sm:px-6 lg:px-8">
       <div className="mt-10 flex justify-center">
         <Carousel
           className="w-full max-w-sm sm:max-w-lg lg:max-w-6xl"
